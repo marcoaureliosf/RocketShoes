@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 
 import logo from '../../assets/images/logo.svg';
 import { Container, Cart } from './styles';
+import { useCart } from '../../hooks/useCart';
 
 export function Header() {
+    const { cart } = useCart();
+    const cartSize = cart.length
 
     return (
         <Container>
@@ -16,7 +19,7 @@ export function Header() {
                 <div>
                     <strong>Meu carrinho</strong>
                     <span>
-                        items
+                        {cartSize === 1 ? `${cartSize} item` : `${cartSize} itens`}
                     </span>
                 </div>
                 <MdShoppingBasket size={36} color="#FFF" />

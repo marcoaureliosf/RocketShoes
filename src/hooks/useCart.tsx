@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
+import { toast } from 'react-toastify';
 import { api } from '../services/api';
 import { Product } from '../types';
 
@@ -43,7 +44,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             const amount = currentAmount + 1;
 
             if (amount > stockAmount) {
-                console.log('Quantidade solicitada fora de estoque');
+                toast.error('Quantidade solicitada fora de estoque');
                 return;
             }
 
@@ -61,7 +62,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             setCart(updatedCart)
             localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart))
         } catch {
-            console.log('Erro na adição do produto');
+            toast.error('Erro na adição do produto');
         }
     };
 
@@ -78,7 +79,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
                 throw Error();
             }
         } catch {
-            console.log('Erro na remoção do produto');
+            toast.error('Erro na remoção do produto');
         }
     };
 
@@ -95,7 +96,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
             const stockAmount = stock.data.amount;
 
             if (amount > stockAmount) {
-                console.log('Erro na alteração de quantidade do produto');
+                toast.error('Erro na alteração de quantidade do produto');
                 return;
             }
 
@@ -110,7 +111,7 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
                 throw Error();
             }
         } catch {
-            console.log('Erro na alteração de quantidade do produto');
+            toast.error('Erro na alteração de quantidade do produto');
         }
     };
 
