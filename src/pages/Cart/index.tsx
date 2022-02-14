@@ -35,15 +35,6 @@ export function Cart() {
     return (
         <Container>
             <ProductTable>
-                <thead>
-                    <tr>
-                        <th aria-label="product image" />
-                        <th>PRODUTO</th>
-                        <th>QTD</th>
-                        <th>SUBTOTAL</th>
-                        <th aria-label="delete icon" />
-                    </tr>
-                </thead>
                 <tbody>
                     {cartFormatted.map(product => (
                         <tr key={product.id}>
@@ -75,15 +66,15 @@ export function Cart() {
                                 </div>
                             </td>
                             <td>
-                                <strong>{product.subTotal}</strong>
-                            </td>
-                            <td>
-                                <button
-                                    type="button"
-                                    onClick={() => handleRemoveProduct(product.id)}
-                                >
-                                    <MdDelete size={20} />
-                                </button>
+                                <div>
+                                    <strong>{product.subTotal}</strong>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleRemoveProduct(product.id)}
+                                    >
+                                        <MdDelete size={20} />
+                                    </button>
+                                </div>
                             </td>
                         </tr>
                     ))}

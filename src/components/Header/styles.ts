@@ -31,7 +31,7 @@ export const Cart = styled(Link)`
     }
 
     span {
-      font-size: 12px;
+      font-size: 1rem;
       color: #999;
     }
   }

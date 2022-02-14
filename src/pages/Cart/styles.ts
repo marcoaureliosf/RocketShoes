@@ -31,16 +31,26 @@ export const Container = styled.div`
 
 export const ProductTable = styled.table`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  thead th {
-    color: #999;
-    text-align: left;
-    padding: 12px;
+  @media (max-width: 640px) {
+    display: 100%;
+    
+    tbody, td {
+      display: block;
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
-
+  
   tbody td {
     padding: 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 2.5px solid #eee;
   }
 
   img {
@@ -55,7 +65,7 @@ export const ProductTable = styled.table`
   span {
     display: block;
     margin-top: 5px;
-    font-size: 18px;
+    font-size: 1rem;
     font-weight: bold;
   }
 
@@ -107,7 +117,7 @@ export const Total = styled.div`
   }
 
   strong {
-    font-size: 28px;
+    font-size: 1rem;
     margin-left: 5px;
   }
 `;

@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const ProductList = styled.ul`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 20px;
   list-style: none;
 
@@ -20,14 +20,14 @@ export const ProductList = styled.ul`
     }
 
     > strong {
-      font-size: 16px;
-      line-height: 20px;
+      font-size: 1rem;
+      line-height: 1rem;
       color: #333;
       margin-top: 5px;
     }
 
     > span {
-      font-size: 21px;
+      font-size: 1rem;
       font-weight: bold;
       margin: 5px 0 20px;
     }
